@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>27th March shhornchurch.html</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/master.css">
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+
+<body class="indexpage">
+  <!--Navigation bar-->
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch('/navbar-index.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading the navigation:', error);
+      });
+  </script>
+
+  <!--End of Navigation bar-->
+  <div id="navbar"></div>
+  <script src="navbar.js"></script>
+  <div class="indexpage">
+    <div class="container mt-5">
+
+      <p style="margin-top: 100px;"></p>
+
+      <h2> A short history of Hornchurch</h2>
+
+      <p>
+        The name 'Hornchurch' was first recorded in 1222. It is an Anglicised version of the Latin,
+        'Monasterium Cornutum', which roughly translates as 'church with horn like gables'. Although
+        Roman remains, sufficient to prove a settlement, have been found at Mardyke farm in South
+        Hornchurch, the origins of the main village are obscure. It probably dates from Saxon times,
+        and
+        a church, described in charters and legal documents as the 'Ecclesisa de Havering' once
+        occupied the site of the present Church of St Andrew, which dates from the 13th century.
+
+        This prominent medieval church was once the principal church in Havering. The unusual
+        Highland bulls head on the eastern gable of the chancel was first mentioned in 1824, but 'points of
+        lead fashioned like horns', apparently in the same position, can be traced back to 1610, and
+        could have even earlier origins. By 1384 a bull's head and horns appeared on the seal of the Prior
+        of Hornchurch, and as well as suggesting that the church had horn-like gables, it could also
+        reflect the area's long association with the leather industry.
+
+        The 'Hornchurch Hoard,' consisting of 448 silver of pennies from around 1223-60 was found by
+        workmen in the Upminster Road, an area within the bounds of the former Hornchurch Priory.
+        They were mostly English coins, struck in the reign of Henry III, with a few contemporary
+        Scottish and Irish coins.
+
+        At the time of the Domesday survey in 1086, Hornchurch was part of the royal manor of
+        Havering, but from the 13th century onwards it became a flourishing community in its own right. There
+        were at least 10 manors, several farms, and a leather industry that lasted over six centuries.
+        The industry supplied work to a large number of people including fellmongers, tanners and
+        skinners, and the goods produced had an outlet at Romford Market.
+
+        In 1789 the Old Hornchurch Brewery was founded by John Woodfine, supplying the inns in the
+        area. The economy, involving agriculture and small trades and crafts, developed further in the
+        18th century when the Wedlake Brothers, Thomas and Robert, opened an innovative iron foundry in
+        Billet Lane. They specialised in agricultural implements, further serving the economy of the
+        area. Thomas lived opposite the foundry at Fairkytes, and like several other gentlefolk who
+        chose to live locally, built or improved houses in the area.
+      </p>
+      <h3>Some people and places in the Hornchurch story</h3>
+      <p>
+       <b>Appleton's alms-houses.</b> In 1586 Jane Ayloffe, a widow, bought a house on the south side of
+        High
+        Street for conversion into 3 alms-houses. The alms-houses were given in trust for the aged
+        poor
+        who had lived in Hornchurch for at least 7 years.
+<br>
+        <b>Thomas Witherings</b> lived with his wife Dorothy at the large manor house of Great Nelmes. When
+        King Charles opened up the post to the public in 1635 it is believed that Witherings, the
+        Postmaster General, produced the plans for the service, one of the most important
+        developments
+        in the history of Britain's postal service.
+<br>
+        <b>Alice Aylett</b> made provision in her will of 1731 for the founding of Aylett's school, with
+        funding for a schoolmaster to give tuition to ten poor boys. Prior to this, education in
+        Hornchurch was provided by the local clergy, or by charity schools.
+<br>
+        <b>Bretons manor house</b> was probably named for the LeBreton family who owned the land here from
+        the 12th to the 14th century. Rebuilt in around 1740, it has many of its original features
+        intact. The staircase survives from an earlier Tudor house, and nearby is a brick barn and walled
+        garden that date from the 16th century. There are tales of tunnels, probably of Tudor origin and
+        large enough to take a horse and cart, running from under the house to the river. The purpose of
+        the tunnels is unknown, but they could suggest smuggling activity!
+<br>
+        <b>Fairkytes house</b> was built in the late 17th century, with additional work being carried out
+        in the 18th and 19th centuries. The first occupant was Job Alibone, whose son Sir Richard
+        Alibone, was the first Catholic to be a Justice of the King's Bench. The Council used Fairkytes as a
+        library from 1953 and since 1972 it has been the home of Havering Arts Centre.
+<br>
+        <b>Joseph Fry,</b> son of Quaker and prison reformer Elizabeth Fry, lived at Fairkytes house with
+        his wife and children from 1870 until his death in 1896. He, like his mother, engaged in
+        charitable  works.
+      </p>
+
+      <h3>Did you know?</h3>
+      <p>A bare-knuckle prize fight, for a purse of 400 guineas, took place between Daniel
+        Mendoza, the first Jewish English heavyweight champion, and John Jackson, known as Gentleman
+        Jackson, behind St Andrews Church on 15th April 1795? Jackson was declared the winner,
+        securing
+        him the championship of England.
+      </p>
+      <div class="copyright-text">
+        © Havering Museum Ltd.
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>27th March shcranham.html</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/master.css">
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+
+<body class="indexpage">
+  <!--Navigation bar-->
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch('/navbar-index.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading the navigation:', error);
+      });
+  </script>
+
+  <!--End of Navigation bar-->
+  <div id="navbar"></div>
+  <script src="navbar.js"></script>
+  <div class="indexpage">
+    <div class="container mt-5">
+
+      <p style="margin-top: 100px;"></p>
+
+      <h2> A short history of Cranham and North Ockendon</h2>
+
+      <p>Cranham is an ancient parish bounded by Upminster on the west, and North Ockendon on the
+        south.
+        In the Middle Ages Cranham was more often known as Bishop's Ockenden since its chief manor
+        was
+        held by the bishop of London, but from the 15th century it was usually called Cranham.
+
+        Domesday figures show Cranham as small and heavily wooded, but from the 15th century the
+        process
+        of forest clearance was advancing. Mixed farming, with arable predominating, became the
+        economic
+        mainstay of the parish throughout this time and into the 19th century. The population grew
+        in
+        the 19th century and there were 340 people living in farms or cottages in 1851.
+
+        After the Second World War Cranham became a commuter suburb of London, with livery stables
+        and
+        riding schools largely replacing sheep and dairy farming.
+
+        North Ockendon is a small country parish whose medieval name, 'Ockenden Setfountayns',
+        derived
+        from the lords of the manor, the Setfountayn family who acquired the manor in the 1200s.
+        Settlement in the area was established in the Middle Ages, with a central village and a few
+        outlying farms.
+
+        Little has changed in the makeup of the parish over time, with farming remaining the main
+        occupation. A mill once stood in North Ockendon, but was demolished in 1840. Among the many
+        surviving buildings of historic interest are The Old Bakehouse, The Forge, both
+        timber-framed
+        buildings that were built on the Ockendon Road in the 17th century, and a rectory house that
+        was
+        rebuilt in 1750. North Ockendon Hall was destroyed during WWII, but its medieval moat is now
+        part of Hall Farm flower nursery.
+
+        In the 19th century some agricultural land was turned over to market gardening, and then
+        some to
+        gravel extraction by the middle of the 20th century.
+
+        The village became part of Hornchurch Urban District in the 1930s, and then the London
+        Borough
+        of Havering in 1965.</p>
+
+      <h3>Some People and Places in the Cranham & North Ockendon Story</h3>
+      <p>
+        <b>General James Oglethorpe</b> was a politician, social reformer and military leader. In 1722 he
+        successfully ran for Parliament, and in 1729 he campaigned for prison reform in England. He
+        had a long and varied career, which included founding the North American colony of Georgia in
+        1731. After many years abroad he met heiress Elizabeth Wright on a return visit to England in
+        1744. They married and lived at her inherited estate, Cranham Hall, until his death in 1785.
+        <br>
+        <b>Cranham Hall,</b> The Chase, Cranham. Whilst it is known that there was a house on the site of
+        Cranham Hall in about 1600, it was demolished in about 1789, and the present house on the
+        site
+        dates from around 1800. The nearby All Saints Church, was built in 1873, but an original
+        church on the site was recorded in 1310. There is a commemorative tablet to General Oglethorpe, one
+        of the Hall's most notable inhabitants, on its south wall.
+        <br>
+        <b>The Church of St Mary Magdalene</b> in Church Lane, North Ockendon, was built prior to 1075 on a
+        site dating back to c630, but after many alterations through the centuries, only the south
+        doorway of the church now dates from this time. The chancel dates from the 14th century, and
+        the pulpit from the 17th century. There was further restoration and improvements made in the
+        19th century.
+        <br>
+        <b>tubbers</b>S has a documented history dating back to 1334, although only the garden wall remains
+        from the original mansion. The estate was named after William Stubbers, a yeoman farmer who
+        had formed it between 1438 and 1463. Humphrey Repton, the great late Georgian landscape designer
+        provided designs for Stubbers in 1796, detailing them in one of the trademark Red Books (so
+        named for their red morocco binding) which he presented to his clients. The Red Book for
+        Stubbers still exists, and is held by the Essex Record Office.
+      </p>
+
+      <br>
+      <h3>Did you know?</h3>
+      <p>
+        William Coys the famous botanist, lived at Stubbers, North Ockendon, until his
+        death in 1627. He cultivated many unusual species in his walled gardens, and established one
+        of
+        the earliest plant collections recorded in England. A hundred years later many of the plants
+        from Stubbers were used to establish Kew Gardens.
+      </p>
+
+      <div class="copyright-text">
+        © Havering Museum Ltd.
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

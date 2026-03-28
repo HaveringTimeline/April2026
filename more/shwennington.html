@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>27th March shwennington.html</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/master.css">
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+
+<body class="indexpage">
+  <!--Navigation bar-->
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch('/navbar-index.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading the navigation:', error);
+      });
+  </script>
+
+  <!--End of Navigation bar-->
+  <div id="navbar"></div>
+  <script src="navbar.js"></script>
+  <div class="indexpage">
+    <div class="container mt-5">
+
+      <p style="margin-top: 100px;"></p>
+
+      <h2> A short history of Wennington</h2>
+
+      <p>
+        First recorded in 969AD as 'Winintuna', there is a suggestion that Wennington was named for the Saxon chief,
+        Wynna. It
+        is a small, ancient marshland village bounded on the west and north by Rainham, and east by the village of
+        Aveley, and
+        south by the Thames. Its boundary with Aveley was being disputed in the 19th century but ultimately settled in
+        1842. A
+        manor house existed in 1198, known as Wennington Westminster or Wennington Hall, and the church of St Mary and
+        St Peter
+        was also built about this time. The church stands on a ridge of land across the marshes, and is the only
+        remaining
+        medieval building in the village, although it has seen many changes and alterations. The 12th century doorway
+        remains
+        but most of the present church dates from the 13th century, and the tower from the 15th century. It is believed
+        there
+        had also been a Saxon church on this site, and a church is officially recorded in Wennington in 1042-1044 when
+        Edward
+        the Confessor confirmed the parish as belonging to Westminster Abbey. In 1066, the recorded population of
+        Wennington had
+        been eight, but by 1670 there were twelve houses, and by 1801 there were 91 recorded inhabitants. In the 1880s,
+        when
+        wealthy Rainham industrialists chose to live in Wennington, some prosperity came to the area and the population
+        began to
+        rise, but Wennington remained a rural parish, with agriculture as its main occupation and pasture land
+        predominant.
+        Market gardening had become well established by about 1841, and Wennington was producing large quantities of
+        vegetables,
+        especially peas for the London market. From 1865 onwards, several factories and manufacturers tried to set up in
+        Wennington but with less success. Firstly, the Fresh Meat Preserving Company was founded, but passed to James
+        Ingram &
+        Sons, india-rubber manufacturers, just one year later. In 1881 chemical manufacturers, John Kidd & Company, took
+        over,
+        and they also built a coffee house c1882, which survived until 1973. They leased the factory in 1885 to the
+        Camden
+        Marine Steam laundry, but it burnt down in 1891. Wennington was part of Hornchurch Urban district from 1934,
+        until it
+        became part of Havering in 1965. 2019 the Havering Hoard was discovered in Wennington during an archaeological
+        survey
+        prior to a new gravel pit being opened up. The 453 pieces of bronze was the largest hoard discovered in London
+        and the
+        third .
+
+      <h3>Some People and Places in the Wennington Story</h3>
+      <p>
+        <b>Henry of Yevele</b> was a medieval master-mason and architect who held lands in Wennington. He was involved
+        in work on the
+        Bloody Tower in the Tower of London, and the naves of Westminster Abbey and Canterbury Cathedral Wennington Hall
+        has a
+        history dating back to the Domesday Book. It was held by Edward the Confessor in the 11th century, and in the
+        14th
+        century by Henry of Yevele, who served as Speaker in two Parliaments of Richard II. However, Wennington Hall has
+        been
+        rebuilt and undergone many alterations, and is today a modern 20th century building.
+        <br>
+        <b>Nicholas Brady</b> was rector in Wennington in the late 19th century, and lived at Rainham Hall. He compiled
+        careful notes on the history of the parish,
+        and took the lead in the social life of Wennington, encouraging concerts, magic lantern shows and glee clubs,
+        mostly
+        centred at the newly built school. Wennington School was built in 1887 adjoining the church. Until then,
+        children had
+        been taught in private houses, and in a thatched cottage in Church Lane that had been owned by the
+        churchwardens. The
+        cottage has since been demolished, and the school was converted into three dwellings in 1966.
+        <br>
+        <b>Henry Perigal,</b>a bookkeeper and eccentric amateur mathematician, was a descendent of a Huguenot family
+        which had immigrated to England in
+        the 17th century. His life spanned almost the entire 19th century. Although he wrote on many subjects, he is
+        primarily
+        known for providing proof for the Pythagorean Theorem in his booklet, Geometric Dissections and Transpositions,
+        the
+        details of which are recorded on his memorial in the churchyard of St Mary & St Peter. He was a member of the
+        London
+        Mathematical Society, treasurer of the Royal Meteorological Society, a fellow of the Royal Astronomical Society,
+        and, at
+        the age of 94, he became a member of the Royal Institution.
+      <h3> Did you know? </h3>
+      <p>A reformatory ship, called the Cornwall, was moored at nearby Purfleet in 1859? It could accommodate up to 250
+        boys who had been committed to detention for more than
+        three years. Some terraced houses for its staff were built in Wennington, as well as a large laundry. We have a
+        reminder
+        that the laundry once stood here in the name of Laundry Cottages on Wennington Road.
+      </p>
+      <div class="copyright-text">
+        © Havering Museum Ltd.
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

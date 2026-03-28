@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>27th March shupminster.html</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/master.css">
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+
+<body class="indexpage">
+  <!--Navigation bar-->
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch('/navbar-index.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading the navigation:', error);
+      });
+  </script>
+  <script>
+    function loadCard() {
+      fetch("card.html")
+        .then(r => r.text())
+        .then(data => {
+          document.getElementById("cardContainer").innerHTML = data;
+        });
+    }
+  </script>
+  <!--End of Navigation bar-->
+  <div id="navbar"></div>
+  <script src="navbar.js"></script>
+  <div class="indexpage">
+    <div class="container mt-5">
+
+      <p style="margin-top: 100px;"></p>
+
+      <h2> A short history of Upminster</h2>
+
+      <p> Evidence of a Romano-British farmstead, said to have been occupied during the 1st and 3rd
+        centuries, was discovered west of Corbets Tey during gravel digging in Upminster in 1962. In
+        medieval Upminster, settlement seems to have been in three clusters: the village itself, and
+        the hamlets of Hacton and Corbets Tey, which expanded slowly, with a few scattered farms being
+        built at the north and south ends of the parish. Although it was completely rebuilt in 1861-62, St Laurence's
+        church on the
+        Corbets Tey Road retains a tower with stonework dating to around 1200, and it is believed a
+        church may have existed on or near this site as early as the 7th century.
+        <br>
+        There were three manors recorded in Upminster in 1086, the largest of which, originally
+        known as the manor of Upminster, was later known as Gaynes, or Engaynes, after Vitalis Engayne who
+        acquired it in 1214. New Place began as part of the Gaynes estate in 1556, but in 1775 a new
+        house was built on the site by Sir James Esdaile, who developed several of the houses in
+        Upminster. He added a clock turret, which came from Woolwich Arsenal, to the roof of the
+        stable block. It houses a clock made in 1774 by famous London clock maker, Edward Tutet. New Place
+        itself was demolished in 1924, but the stable block remained and is known today as the
+        Clockhouse.
+
+        The third manor of Upminster, also known as Waltham Upminster and Upminster Hall, was gifted
+        to the college (later abbey) of Waltham Holy Cross in the 9th century by Earl Harold. It is
+        said that today the ghosts of the monks can be glimpsed in a tree walk in the nearby playing
+        fields that were part of the estate! The manor saw many changes in ownership over the years until
+        1686 when it was bought by Andrew Branfil, and it remained in his family until the early 20th
+        century. Today it is home to the Upminster Golf Club.
+        <br>
+        The economic history of Upminster has chiefly been that of mixed agriculture, with an
+        upsurge in market-gardening in the 19th century. This agricultural heritage is evidenced in two fine
+        monuments still to be seen today. As well as Upminster Windmill of 1803, there is Upminster
+        Barn (also known as Upminster 'Tithe' Barn), which is thought to have been built in the early
+        15th century, and was used as a threshing barn. Both are now heritage attractions open to the
+        public.
+      </p>
+      <h3>Some People and Places in the Upminster Story</h3>
+      <p>
+        <b>Upminster Windmill</b> stands on Upminster Hill and was built by local farmer James Nokes in
+        1803. It is the largest smock mill remaining in the London area, and considered to be one of the
+        finest examples. It is now open to the public as a heritage attraction.
+        <br>
+        <b>Alice Perrers</b> lived at Gaynes Manor, Upminster. She died there in 1400 after a life of great
+        notoriety. She was married to Sir William of Windsor, Viceroy of Ireland, but was also the
+        notorious mistress of Edward III. Her influence over the king led to accusations of
+        witchcraft in 1376.
+        <br>
+        <b>William Derham</b> was vicar of Upminster from 1689 to 1735. A natural philosopher, and the
+        author of many research papers, he is credited with producing the earliest, reasonably accurate
+        estimate of the speed of sound. He became a fellow of the Royal Society in 1702, and lived
+        in High House until his death in 1735.
+
+        <br>
+        <b>Lady Edna Clarke Hall, </b>an artist and poet, lived in Great House, a 16th century farmhouse in
+        Upminster. She studied at the Slade School of Art in 1895-9 and had several exhibitions from
+        1901 onwards. Several of her drawings are held in the Tate Gallery. She died in 1979, aged
+        100.
+        <br>
+        <b>Henria Williams</b> lived in Upminster and was active in the Suffragette movement. In a march on
+        the House of Commons in 1910 there was a disturbance that would become known as 'Black Friday'.
+        Many protesters, including Williams, were badly injured by police. Sadly, Williams died suddenly
+        two months later from heart failure.
+        <br>
+        <b>Ian Dury,</b> painter, musician and actor was born in Harrow in 1942, but after his parents
+        separated he moved with his mother to Cranham. He reflected his teenage Teddy boy life
+        around
+        Upminster in the song 'Upminster Kids,' and titled one of his albums 'Lord Upminster'.
+      </p>
+      <br>
+      <h3>Did you know?</h3>
+      <p> ...that High House, built in 1580, was home to many notable people including Major Frederick
+        Howard, who died at the Battle of Waterloo? Lord Byron, the poet, was a friend of Howard's,
+        and when the house was demolished in 1935, the parade of shops built on the site was named
+        'Byron Parade' in recognition of his visits.
+      </p>
+
+      <div class="copyright-text">
+        © Havering Museum Ltd.
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
