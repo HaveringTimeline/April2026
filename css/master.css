@@ -4,12 +4,12 @@
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
- background-image: url("/images/parchment.jpg"); /*Will change colour of search.html background*/
+/* background-image: url("/images/parchment.jpg");  --- Will change colour of search.html background*/
   /* overrides earlier background-color */
   display: flex;
   height: 100vh;
   overflow: hidden;
-  /* background-color: #fbde81 !important; removed - prefer single `background` declaration above */
+  background-color: #fbde81 !important;
 }
 
 .container {
