@@ -11,7 +11,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/master.css">
-  <link rel="stylesheet" href="..css/index.css">
+  <link rel="stylesheet" href="../css/index.css">
 </head>
 
 
@@ -19,7 +19,7 @@
   <!--Navigation bar-->
   <div id="nav-placeholder"></div>
   <script>
-    fetch('/navbar.html')
+    fetch('../navbar.html')
       .then(response => response.text())
       .then(data => {
         document.getElementById('nav-placeholder').innerHTML = data;
@@ -31,7 +31,7 @@
 
   <!--End of Navigation bar-->
   <div id="navbar"></div>
-  <script src="/navbar.js"></script>
+  <script src="../js/navbar.js"></script>
   <div class="indexpage">
     <div class="container mt-5">
 
