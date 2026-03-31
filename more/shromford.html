@@ -1,16 +1,114 @@
-TYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shromford</title>
 
-    <link rel="stylesheet" href="../css/master.css">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>30th March shromford.html</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
-<body>
 
-<p> Chat heading</p>
+<body class="indexpage">
+  <!--Navigation bar-->
+  <div id="nav-placeholder"></div>
+  <script>
+    fetch('navbar-index.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading the navigation:', error);
+      });
+  </script>
 
-</body>
-</html>
+  <!--End of Navigation bar-->
+  <div id="navbar"></div>
+  <script src="navbar.js"></script>
+  <div class="indexpage">
+    <div class="container mt-5">
+
+      <p style="margin-top: 100px;"></p>
+
+      <h2> A short history of Romford</h2>
+
+      <p>
+        Early signs of human occupation in Romford include a possible British camp in the Marshalls
+        area and bronzesmith's hoard. Later the area was the site of a Roman staging post called
+        Durolitum. Romford's economy relied on the intersection of major transport routes from an early date.
+        <br>
+        The Middle Ages saw the growth of this small hamlet into a market town. The leather industry
+        which originated in Hornchurch found a ready market in the number of travellers using the
+        old Roman road to Colchester. In 1247, the fledgling market received a royal grant from Henry
+        III, and continues to this day. The existence of the market created a cluster of buildings over
+        the centuries, many of them inns catering for the travellers along the Great Essex Road, and the
+        many visitors to the market.
+        <br>
+        A further boost was given to Romford when improved toll roads were introduced, heralding the
+        rise of the coaching age, where stops were made along the way. Romford now had a very large
+        number of inns and other facilities to cater for the coaches; it even had fashionable shops
+        catering to the gentry and the new professional classes who were setting up in Romford. It
+        was also on the route of itinerants who travelled around the country making a scant living by
+        selling various wares or performing - the type of character seen in Victorian journalist
+        Henry Mayhew's books about the poor.
+        <br>
+        A bombshell hit Romford in the 1830s, with the arrival of the railway. From being a
+        parochial Essex town, slightly cut off, except on market days, Romford now became firmly joined to the
+        rest of Britain and London via the Eastern Counties Railway. One of the main businesses to
+        benefit from the railway was Romford Brewery, which had been founded in 1799. The Brewery
+        closed in 1997, and all that remains is The Brewery Gate, the ground floor being converted into
+        Havering Museum which opened in 2010.
+        <br>
+        Today the Museum can reveal how much more there is in the stories of Romford, Hornchurch,
+        Upminster, Rainham, Havering-atte-Bower and the surrounding areas.
+      </p>
+      <h3>Some People and Places in the Romford Story</h3>
+      <p>
+        <b>The Market</b> began as a sheep market in 1247, with King Henry III granting Romford permission
+        for a weekly market, on a Wednesday, with the addition of a yearly fair from 1250.
+        <br>
+        <b>The Golden Lion Pub</b> that stands at the edge of the Market Place existed in 1440, and still
+        functions today. A largely timber-framed building, it is made up of at least three sections
+        of varying dates, with additions and changes made from the 16th to the 19th centuries. The
+        infamous highwayman Dick Turpin was said to have been a visitor.
+        <br>
+        <b>Church House</b> in the Market Place began as a much larger 15th century building and was used
+        as a chantry priest's house. It was later used as the Cock and Bell Inn, and is rumoured to have
+        a ghost.
+        <br>
+        <b>Sir Francis Bacon,</b> the Elizabethan statesman, philosopher, essayist and author, became
+        landlord of the Golden Lion pub when he inherited it from his father in 1601. The Cavalier poet, was born in Romford in 1582. In 1639 he was made city
+        chronologer, a post previously held by Ben Johnson and Thomas Middleton. At the outbreak of
+        the Civil War in 1642, he took the Royalist side and published pamphlets in support of the King.
+        <br>
+        <b>Colonel Thomas Blood (c1618-1680)</b>as born in County Meath, Ireland. A rebel and a
+        republican, his audacious adventures involved him dressing in a variety of disguises. A turncoat and a
+        spy, he is most notorious for attempting to steal the Crown Jewels in 1671, disguised as a
+        parson. Blood and his cohorts were imprisoned briefly in the Tower of London, but curiously he was
+        never actually punished for the crime. Instead, he was rewarded by Charles II with lands in
+        Ireland and a £500 annual pension!
+      </p>
+      <br>
+      <h3>Did you know?</h3>
+      <p>
+        The infamous Colonel Blood took up residence in Romford the year before his attempt to steal
+        the Crown Jewels. He assumed the name Ayloffe, and practised as either an apothecary or a
+        doctor!
+      </p>
+      <div class="copyright-text">
+        © Havering Museum Ltd.
+      </div>
+      </div>
+      </div>
+      </body>
+      
+      </html>
+
