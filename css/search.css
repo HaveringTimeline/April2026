@@ -65,6 +65,40 @@
   border-color: #7f1629;
 }
 
+.search-results {
+  overflow: auto;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #7f1629 transparent;
+}
+
+/* Chrome, Edge, Safari */
+.search-results::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background-color: #7f1629;
+  border-radius: 999px;
+  border: 2px solid transparent; /* creates inner spacing */
+  background-clip: content-box;
+  transition: background-color 0.2s ease;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+  background-color: #5e0f1e; /* slightly darker on hover */
+}
+
+.search-results::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 /* Search page section divider styling */
 .search-page .search-section {
   margin-bottom: 30px;
