@@ -45,7 +45,7 @@
 
 /* Left sidebar (25%) */
 .search-page .search-sidebar {
-  width: 25%;
+  width: 30%;
   padding: 20px;
   background-image: url("/images/parchment.jpg"); /* Search section background colour*/
   border-radius: 8px;
@@ -58,7 +58,7 @@
 
 /* Right results (75%) */
 .search-page .search-results {
-  width: 75%;
+  width: 70%;
   padding: 2px;
   overflow-y: auto;
   max-height: 90vh;
