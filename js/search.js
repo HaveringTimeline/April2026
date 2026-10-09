@@ -40,7 +40,17 @@
   }
 
   function escapeHtml(s) {
-    return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+    return String(s).replace(
+      /[&<>"']/g,
+      (c) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[c],
+    );
   }
 
   function normalizeInput(raw) {
@@ -61,7 +71,8 @@
       candidates.push(digits.padStart(4, "0"));
     }
     if (!/BC$/.test(norm)) candidates.push(norm + "BC");
-    if (digits && digits.length <= 4) candidates.push(digits.padStart(4, "0") + "BC");
+    if (digits && digits.length <= 4)
+      candidates.push(digits.padStart(4, "0") + "BC");
 
     for (const id of candidates) {
       const el = doc.getElementById(id);
@@ -98,10 +109,14 @@
     const headings = Array.from(doc.querySelectorAll(".timeline-h1"));
     const digits = norm.replace(/[^0-9]/g, "");
     if (digits) {
-      const match = headings.find((h) => (h.textContent || "").replace(/\s+/g, "").includes(digits));
+      const match = headings.find((h) =>
+        (h.textContent || "").replace(/\s+/g, "").includes(digits),
+      );
       if (match) return match.closest(".card");
     }
-    const match2 = headings.find((h) => (h.textContent || "").toUpperCase().includes(yearInput.toUpperCase()));
+    const match2 = headings.find((h) =>
+      (h.textContent || "").toUpperCase().includes(yearInput.toUpperCase()),
+    );
     if (match2) return match2.closest(".card");
     return null;
   }
@@ -153,11 +168,16 @@
     }
 
     if (romhm) parts.push(`<div class="romhm-text">${romhm.innerHTML}</div>`);
-    if (linkContainer) parts.push(`<div class="link-container">${linkContainer.innerHTML}</div>`);
+    if (linkContainer)
+      parts.push(
+        `<div class="link-container">${linkContainer.innerHTML}</div>`,
+      );
     if (copy) parts.push(`<div class="copyright-text">${copy.innerHTML}</div>`);
 
     if (parts.length === 0) {
-      parts.push(`<div class="notice">Found a card for <strong>${escapeHtml(yearInput)}</strong> but it contains no recognized fields. Showing raw HTML of the card:</div>`);
+      parts.push(
+        `<div class="notice">Found a card for <strong>${escapeHtml(yearInput)}</strong> but it contains no recognized fields. Showing raw HTML of the card:</div>`,
+      );
       parts.push(`<pre>${escapeHtml(card.innerHTML)}</pre>`);
     }
 
@@ -183,7 +203,9 @@
 
     matchingCards.forEach((card, idx) => {
       const h1 = card.querySelector(".timeline-h1");
-      const title = h1 ? (h1.textContent || "").trim().substring(0, 80) : `Entry ${idx + 1}`;
+      const title = h1
+        ? (h1.textContent || "").trim().substring(0, 80)
+        : `Entry ${idx + 1}`;
       dropdownHtml += `<option value="${idx}">${escapeHtml(title)}</option>`;
     });
 
@@ -243,8 +265,12 @@
       }
 
       if (romhm) parts.push(`<div class="romhm-text">${romhm.innerHTML}</div>`);
-      if (linkContainer) parts.push(`<div class="link-container">${linkContainer.innerHTML}</div>`);
-      if (copy) parts.push(`<div class="copyright-text">${copy.innerHTML}</div>`);
+      if (linkContainer)
+        parts.push(
+          `<div class="link-container">${linkContainer.innerHTML}</div>`,
+        );
+      if (copy)
+        parts.push(`<div class="copyright-text">${copy.innerHTML}</div>`);
 
       selectedContent.innerHTML = parts.join("\n");
     }
@@ -401,7 +427,11 @@
   }
 
   function renderSearchResults(matchingCards, searchTerm) {
-    console.log("renderSearchResults called with", matchingCards.length, "matches");
+    console.log(
+      "renderSearchResults called with",
+      matchingCards.length,
+      "matches",
+    );
 
     if (!matchingCards || matchingCards.length === 0) {
       output.innerHTML = `<div class="notice">No entries found matching <strong>${escapeHtml(searchTerm)}</strong>.</div>`;
@@ -449,8 +479,12 @@
       }
 
       if (romhm) parts.push(`<div class="romhm-text">${romhm.innerHTML}</div>`);
-      if (linkContainer) parts.push(`<div class="link-container">${linkContainer.innerHTML}</div>`);
-      if (copy) parts.push(`<div class="copyright-text">${copy.innerHTML}</div>`);
+      if (linkContainer)
+        parts.push(
+          `<div class="link-container">${linkContainer.innerHTML}</div>`,
+        );
+      if (copy)
+        parts.push(`<div class="copyright-text">${copy.innerHTML}</div>`);
 
       output.innerHTML = parts.join("\n");
       return;
@@ -463,7 +497,9 @@
 
     matchingCards.forEach((card, idx) => {
       const h1 = card.querySelector(".timeline-h1");
-      const title = h1 ? (h1.textContent || "").trim().substring(0, 100) : `Result ${idx + 1}`;
+      const title = h1
+        ? (h1.textContent || "").trim().substring(0, 100)
+        : `Result ${idx + 1}`;
       dropdownHtml += `<option value="${idx}">${escapeHtml(title)}</option>`;
     });
 
@@ -520,8 +556,12 @@
       }
 
       // if (romhm) parts.push(`<div class="romhm-text">${romhm.innerHTML}</div>`); // commented out 10th March to stop duplicate romhm-text being displayed
-      if (linkContainer) parts.push(`<div class="link-container">${linkContainer.innerHTML}</div>`);
-      if (copy) parts.push(`<div class="copyright-text">${copy.innerHTML}</div>`);
+      if (linkContainer)
+        parts.push(
+          `<div class="link-container">${linkContainer.innerHTML}</div>`,
+        );
+      if (copy)
+        parts.push(`<div class="copyright-text">${copy.innerHTML}</div>`);
 
       selectedContent.innerHTML = parts.join("\n");
     }
@@ -580,7 +620,9 @@
 
     allCards.forEach((card) => {
       const cardClasses = card.className.split(" ");
-      const hasCategory = selectedCategories.some((cat) => cardClasses.includes(cat));
+      const hasCategory = selectedCategories.some((cat) =>
+        cardClasses.includes(cat),
+      );
       if (hasCategory) {
         matchingCards.push(card);
       }
@@ -638,8 +680,12 @@
       }
 
       //   if (romhm) parts.push(`<div class="romhm-text">${romhm.innerHTML}</div>`); //commented out 10th March to stop duplicate romhm-text being displayed
-      if (linkContainer) parts.push(`<div class="link-container">${linkContainer.innerHTML}</div>`);
-      if (copy) parts.push(`<div class="copyright-text">${copy.innerHTML}</div>`);
+      if (linkContainer)
+        parts.push(
+          `<div class="link-container">${linkContainer.innerHTML}</div>`,
+        );
+      if (copy)
+        parts.push(`<div class="copyright-text">${copy.innerHTML}</div>`);
 
       resultsHtml += `<div class="card-result">${parts.join("\n")}</div><hr>`;
     });
@@ -692,5 +738,7 @@
 
   // category search button listener
   // 12 March 2026 - run category search automatically as soon as radio button selected
-  categoryRadios.forEach((radio) => radio.addEventListener("change", searchByCategories));
+  categoryRadios.forEach((radio) =>
+    radio.addEventListener("change", searchByCategories),
+  );
 })();

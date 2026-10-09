@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.querySelector(".sidebar");
 
   if (!wrap || !track) {
-    console.warn("master.js: #autoTimelineWrap or #autoTimelineTrack missing — aborting.");
+    console.warn(
+      "master.js: #autoTimelineWrap or #autoTimelineTrack missing — aborting.",
+    );
     return;
   }
 
@@ -75,7 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // --------------------
   function computeOffsetsNow() {
     // Re-read first-half cards (in case recompute is called after dynamic insertion)
-    cards = Array.from(track.querySelectorAll(".card")).slice(0, originalCount || undefined);
+    cards = Array.from(track.querySelectorAll(".card")).slice(
+      0,
+      originalCount || undefined,
+    );
     if (!cards || cards.length === 0) {
       offsets = [];
       lastIndex = -1;
@@ -128,11 +133,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (scrollUp) {
     scrollUp.addEventListener("mousedown", () => (arrowSpeed = FAST_SPEED));
-    scrollUp.addEventListener("touchstart", () => (arrowSpeed = FAST_SPEED), { passive: true });
+    scrollUp.addEventListener("touchstart", () => (arrowSpeed = FAST_SPEED), {
+      passive: true,
+    });
   }
   if (scrollDown) {
     scrollDown.addEventListener("mousedown", () => (arrowSpeed = -FAST_SPEED));
-    scrollDown.addEventListener("touchstart", () => (arrowSpeed = -FAST_SPEED), { passive: true });
+    scrollDown.addEventListener(
+      "touchstart",
+      () => (arrowSpeed = -FAST_SPEED),
+      { passive: true },
+    );
   }
   document.addEventListener("mouseup", () => (arrowSpeed = 0));
   document.addEventListener("touchend", () => (arrowSpeed = 0));
@@ -148,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     top: "50%", //vertical position of pause button midway between scroll arrows
     right: "29px", //horizontal position of pause button
     fontSize: "28px",
-    color: "#9e1b32", //Pause/play button colour
+    color: "#5e1020", //Pause/play button colour
     cursor: "pointer",
     zIndex: "2000",
     opacity: "0.9",
@@ -207,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tooltip.id = "sliderTooltip";
       Object.assign(tooltip.style, {
         position: "fixed",
-        background: "#9e1b32",
+        background: "#5e1020",
         color: "#fff",
         padding: "6px 10px",
         borderRadius: "6px",
@@ -221,21 +232,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // inject minimal slider thumb CSS for visibility on all browsers
-    // Slider colours set by this line of code:  linear-gradient(to right, #9e1b32 var(--sx, 0%), white var(--sx, 0%)); below
+    // Slider colours are applied to the filled track and thumb below.
     if (!document.getElementById("sbt-slider-css")) {
       const style = document.createElement("style");
       style.id = "sbt-slider-css";
-style.textContent = `
+      style.textContent = `
     /* Base element background (Firefox uses this) */
     #timelineSlider {
-        background: linear-gradient(to right, #9e1b32 var(--sx, 0%), white var(--sx, 0%));
+        background: linear-gradient(to right, #5e1020 var(--sx, 0%), white var(--sx, 0%));
         outline: none;
     }
 
     /* WebKit browsers (Chrome, Edge, DuckDuckGo, Safari) */
     #timelineSlider::-webkit-slider-runnable-track {
         height: 10px;
-        background: linear-gradient(to right, #9e1b32 var(--sx, 0%), white var(--sx, 0%));
+        background: linear-gradient(to right, #5e1020 var(--sx, 0%), white var(--sx, 0%));
     }
 
     #timelineSlider::-webkit-slider-thumb {
@@ -243,7 +254,7 @@ style.textContent = `
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        background: #9e1b32;
+        background: #5e1020;
         margin-top: -4px;
         box-shadow: 0 0 2px rgba(0,0,0,0.5);
     }
@@ -251,7 +262,7 @@ style.textContent = `
     /* Firefox track */
     #timelineSlider::-moz-range-track {
         height: 10px;
-        background: linear-gradient(to right, #9e1b32 var(--sx, 0%), white var(--sx, 0%));
+        background: linear-gradient(to right, #5e1020 var(--sx, 0%), white var(--sx, 0%));
         border: none;
     }
 
@@ -260,7 +271,7 @@ style.textContent = `
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        background: #9e1b32;
+        background: #5e1020;
         border: none;
     }
 `;
@@ -284,7 +295,10 @@ style.textContent = `
     // center along wrap height
     const topPos = wrapRect.top + wrapRect.height / 2;
     // Limit slider "length" so it fits in viewport; width because element is rotated
-    const sliderLength = Math.min(Math.max(wrapRect.height * 0.9, 200), window.innerHeight * 0.9);
+    const sliderLength = Math.min(
+      Math.max(wrapRect.height * 0.9, 200),
+      window.innerHeight * 0.9,
+    );
     slider.style.width = `${sliderLength}px`;
     slider.style.left = `${leftPos}px`;
     slider.style.top = `${topPos}px`;
@@ -346,10 +360,14 @@ style.textContent = `
     const stops = [];
     for (let i = 0; i < n; i++) {
       const pos = i * spacing;
-      stops.push(`#9e1b32 ${pos}%`, `#9e1b32 ${Math.min(pos + 0.5, 100)}%`, `transparent ${Math.min(pos + 0.5, 100)}%`);
+      stops.push(
+        `#5e1020 ${pos}%`,
+        `#5e1020 ${Math.min(pos + 0.5, 100)}%`,
+        `transparent ${Math.min(pos + 0.5, 100)}%`,
+      );
     }
     const gradient = `repeating-linear-gradient(to right, ${stops.join(", ")})`;
-  // slider.style.background = gradient;
+    // slider.style.background = gradient;
   }
 
   // show tooltip content for a slider value
@@ -358,7 +376,10 @@ style.textContent = `
     const percent = val / 100;
     const fracIndex = (1 - percent) * (cards.length - 1);
     const idx = Math.round(fracIndex);
-    const title = (cards[idx]?.querySelector(".timeline-h1")?.textContent || `Card ${idx + 1}`).trim();
+    const title = (
+      cards[idx]?.querySelector(".timeline-h1")?.textContent ||
+      `Card ${idx + 1}`
+    ).trim();
     const wrapRect = wrap.getBoundingClientRect();
     // compute Y position: map percentage along wrap height
     const tooltipY = wrapRect.top + wrapRect.height * (1 - percent);
@@ -443,7 +464,11 @@ style.textContent = `
       if (idx === -1) {
         // fallback to match by heading text
         const txt = link.textContent.trim();
-        idx = cards.findIndex((c) => (c.querySelector(".timeline-h1")?.textContent?.trim() || "") === txt);
+        idx = cards.findIndex(
+          (c) =>
+            (c.querySelector(".timeline-h1")?.textContent?.trim() || "") ===
+            txt,
+        );
       }
       if (idx === -1) return;
 
@@ -476,9 +501,11 @@ style.textContent = `
 
       // temporary tooltip display
       slider.value = 100 - (idx / (offsets.length - 1)) * 100;
-      tooltip.textContent = cards[idx]?.querySelector(".timeline-h1")?.textContent?.trim() || `Card ${idx + 1}`;
+      tooltip.textContent =
+        cards[idx]?.querySelector(".timeline-h1")?.textContent?.trim() ||
+        `Card ${idx + 1}`;
       tooltip.style.opacity = "1";
-      
+
       setTimeout(() => {
         tooltip.style.opacity = "0";
       }, 1000);
@@ -516,7 +543,12 @@ style.textContent = `
     if (!offsets || offsets.length === 0) {
       console.warn("master: offsets missing - check cards markup.");
     } else {
-      console.info("master: loaded", { originalCount, lastIndex, halfTrackHeight, offsetsCount: offsets.length });
+      console.info("master: loaded", {
+        originalCount,
+        lastIndex,
+        halfTrackHeight,
+        offsetsCount: offsets.length,
+      });
     }
   }, 300);
 
@@ -526,7 +558,8 @@ style.textContent = `
   function updateExternalLinks() {
     document.querySelectorAll(".link-container a[href]").forEach((link) => {
       try {
-        if (!link.hostname || link.hostname === window.location.hostname) return;
+        if (!link.hostname || link.hostname === window.location.hostname)
+          return;
       } catch (e) {
         /* malformed anchor */
       }
@@ -535,7 +568,10 @@ style.textContent = `
     });
   }
   updateExternalLinks();
-  new MutationObserver(updateExternalLinks).observe(document.body, { childList: true, subtree: true });
+  new MutationObserver(updateExternalLinks).observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
 
   // Accordion
   // --------------------------------------
@@ -546,10 +582,13 @@ style.textContent = `
 
   if (load1707Btn && copyTarget) {
     load1707Btn.addEventListener("click", () => {
-      const originalCard = document.querySelector("#autoTimelineTrack .card#1707");
+      const originalCard = document.querySelector(
+        "#autoTimelineTrack .card#1707",
+      );
 
       if (!originalCard) {
-        copyTarget.innerHTML = "<p style='color:red;'>Card #1707 not found.</p>";
+        copyTarget.innerHTML =
+          "<p style='color:#5e1020;'>Card #1707 not found.</p>";
         return;
       }
 
@@ -577,7 +616,7 @@ style.textContent = `
 
       try {
         // Fetch the entire timeline page
-        const response = await fetch("/master.html");
+        const response = await fetch(new URL("timeline.html", document.baseURI));
         const htmlText = await response.text();
 
         // Parse the HTML into a DOM
@@ -609,58 +648,116 @@ style.textContent = `
     only images inside that card are shown.
   - All other card images are hidden.
 */
-function showImagesForSelection(value) {
-  const track = document.getElementById('autoTimelineTrack');
-  if (!track) return;
+  function showImagesForSelection(value) {
+    const track = document.getElementById("autoTimelineTrack");
+    if (!track) return;
 
-  // hide all images inside timeline cards
-  const allCardImgs = track.querySelectorAll('.card img, .card figure img');
-  allCardImgs.forEach(img => { img.style.display = 'none'; });
+    // hide all images inside timeline cards
+    const allCardImgs = track.querySelectorAll(".card img, .card figure img");
+    allCardImgs.forEach((img) => {
+      img.style.display = "none";
+    });
 
-  if (!value) return;
+    if (!value) return;
 
-  const yearOnly = /^\d{3,4}$/.test(value);
-  const specificId = /^[0-9]{3,4}[A-Za-z]+$/.test(value) ? value : null;
+    const yearOnly = /^\d{3,4}$/.test(value);
+    const specificId = /^[0-9]{3,4}[A-Za-z]+$/.test(value) ? value : null;
 
-  if (specificId) {
-    // exact card id requested (e.g. "1928rh")
-    const card = document.getElementById(specificId);
-    if (card) {
-      const imgs = card.querySelectorAll('img');
-      imgs.forEach(img => { img.style.display = ''; });
-      return;
+    if (specificId) {
+      // exact card id requested (e.g. "1928rh")
+      const card = document.getElementById(specificId);
+      if (card) {
+        const imgs = card.querySelectorAll("img");
+        imgs.forEach((img) => {
+          img.style.display = "";
+        });
+        return;
+      }
+    }
+
+    // fallback: show images for any card whose id starts with the year (e.g. "1928", matches "1928rh","1928ma"...)
+    const yearMatch = value.match(/^(\d{3,4})/);
+    if (yearMatch) {
+      const year = yearMatch[1];
+      const matches = track.querySelectorAll(`[id^="${year}"]`);
+      matches.forEach((card) => {
+        const imgs = card.querySelectorAll("img");
+        imgs.forEach((img) => {
+          img.style.display = "";
+        });
+      });
     }
   }
 
-  // fallback: show images for any card whose id starts with the year (e.g. "1928", matches "1928rh","1928ma"...)
-  const yearMatch = value.match(/^(\d{3,4})/);
-  if (yearMatch) {
-    const year = yearMatch[1];
-    const matches = track.querySelectorAll(`[id^="${year}"]`);
-    matches.forEach(card => {
-      const imgs = card.querySelectorAll('img');
-      imgs.forEach(img => { img.style.display = ''; });
-    });
-  }
-}
-
-/*
+  /*
   Auto-hook: attach change listeners to any select element that should control which images display.
   Add the class "year-class-selector" to the <select> element in your HTML (or adjust the selector below).
   The select's option values should be the id or year you want to show (e.g. value="1928rh" or value="1928").
 */
-document.addEventListener('DOMContentLoaded', () => {
-  const selectors = document.querySelectorAll('select.year-class-selector');
-  selectors.forEach(sel => {
-    sel.addEventListener('change', (e) => {
-      showImagesForSelection(e.target.value);
+  document.addEventListener("DOMContentLoaded", () => {
+    const selectors = document.querySelectorAll("select.year-class-selector");
+    selectors.forEach((sel) => {
+      sel.addEventListener("change", (e) => {
+        showImagesForSelection(e.target.value);
+      });
+
+      // initialize on current value
+      if (sel.value) showImagesForSelection(sel.value);
     });
 
-    // initialize on current value
-    if (sel.value) showImagesForSelection(sel.value);
+    // If your existing code calls a function by year (e.g. showYear('1928')), make it compatible:
+    window.showImagesForSelection = showImagesForSelection;
+  });
+}); // end DOMContentLoaded
+
+// 3rd April - Android scroll fixes
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.getElementById("autoTimelineTrack");
+  const btnUp = document.getElementById("scrollUp");
+  const btnDown = document.getElementById("scrollDown");
+
+  let scrollInterval;
+
+  function startScroll(direction) {
+    stopScroll(); // safety
+    scrollInterval = setInterval(() => {
+      track.scrollTop += direction * 2; // adjust speed if needed
+    }, 10);
+  }
+
+  function stopScroll() {
+    clearInterval(scrollInterval);
+  }
+
+  // =========================
+  // DESKTOP (existing behaviour)
+  // =========================
+  btnUp.addEventListener("mousedown", () => startScroll(-1));
+  btnDown.addEventListener("mousedown", () => startScroll(1));
+
+  document.addEventListener("mouseup", stopScroll);
+
+  // =========================
+  // MOBILE FIX (2026-04-03)
+  // Add touch support
+  // =========================
+  btnUp.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // 2026-04-03 prevent accidental clicks
+    startScroll(-1);
   });
 
-  // If your existing code calls a function by year (e.g. showYear('1928')), make it compatible:
-  window.showImagesForSelection = showImagesForSelection;
+  btnDown.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // 2026-04-03
+    startScroll(1);
+  });
+
+  document.addEventListener("touchend", stopScroll);
+
+  // =========================
+  // MODERN FIX (2026-04-03)
+  // Pointer events (covers mouse + touch + pen)
+  // =========================
+  btnUp.addEventListener("pointerdown", () => startScroll(-1)); // 2026-04-03
+  btnDown.addEventListener("pointerdown", () => startScroll(1)); // 2026-04-03
+  document.addEventListener("pointerup", stopScroll); // 2026-04-03
 });
-}); // end DOMContentLoaded
