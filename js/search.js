@@ -7,9 +7,12 @@
   const btn = document.getElementById("show");
   const exampleBtn = document.getElementById("example");
 
+  if (!output || !yearInput) {
+    return;
+  }
+
   // Category search elements (merged from category.js)
   const categoryOutput = document.getElementById("category-output");
-  const categorySearchBtn = document.getElementById("categorySearchBtn");
   const categoryRadios = document.getElementsByName("category");
 
   const categoryLabels = {
@@ -39,18 +42,14 @@
     }
   }
 
-  function escapeHtml(s) {
-    return String(s).replace(
-      /[&<>"']/g,
-      (c) =>
-        ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;",
-        })[c],
-    );
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    })[char]);
   }
 
   function normalizeInput(raw) {
@@ -60,64 +59,67 @@
     return s;
   }
 
-  function tryFindById(doc, yearInput) {
+  function tryFindById(doc, rawYear) {
     if (!doc) return null;
-    const candidates = [];
-    const norm = normalizeInput(yearInput);
-    if (!norm) return null;
-    candidates.push(norm);
-    const digits = norm.replace(/[^0-9]/g, "");
+
+    const normalizedYear = normalizeInput(rawYear);
+    if (!normalizedYear) return null;
+
+    const candidates = [normalizedYear];
+    const digits = normalizedYear.replace(/[^0-9]/g, "");
+
     if (digits && digits.length <= 4) {
       candidates.push(digits.padStart(4, "0"));
     }
-    if (!/BC$/.test(norm)) candidates.push(norm + "BC");
-    if (digits && digits.length <= 4)
-      candidates.push(digits.padStart(4, "0") + "BC");
 
-    for (const id of candidates) {
-      const el = doc.getElementById(id);
-      if (el) return el;
+    if (!/BC$/.test(normalizedYear)) {
+      candidates.push(`${normalizedYear}BC`);
     }
+
+    if (digits && digits.length <= 4) {
+      candidates.push(`${digits.padStart(4, "0")}BC`);
+    }
+
+    for (const candidateId of candidates) {
+      const element = doc.getElementById(candidateId);
+      if (element) return element;
+    }
+
     return null;
   }
 
-  // Find all cards matching the first 4 digits of the year
-  function findAllMatchingCards(doc, yearInput) {
+  function findAllMatchingCards(doc, rawYear) {
     if (!doc) return [];
-    const norm = normalizeInput(yearInput);
-    const digits = norm.replace(/[^0-9]/g, "");
-    if (!digits || digits.length === 0) return [];
 
-    const first4 = digits.padStart(4, "0");
-    const allCards = Array.from(doc.querySelectorAll(".card"));
-    const matches = [];
+    const digits = normalizeInput(rawYear).replace(/[^0-9]/g, "");
+    if (!digits) return [];
 
-    allCards.forEach((card) => {
+    const firstFourDigits = digits.padStart(4, "0");
+    return Array.from(doc.querySelectorAll(".card")).filter((card) => {
       const cardId = card.id || "";
-      // Check if card ID starts with the 4-digit year pattern
-      if (cardId.match(new RegExp(`^${first4}`))) {
-        matches.push(card);
-      }
+      return new RegExp(`^${firstFourDigits}`).test(cardId);
     });
-
-    return matches;
   }
 
-  function tryFindByHeadingText(doc, yearInput) {
+  function tryFindByHeadingText(doc, rawYear) {
     if (!doc) return null;
-    const norm = normalizeInput(yearInput).replace(/BC$/, "");
+
+    const normalizedYear = normalizeInput(rawYear).replace(/BC$/, "");
     const headings = Array.from(doc.querySelectorAll(".timeline-h1"));
-    const digits = norm.replace(/[^0-9]/g, "");
+    const digits = normalizedYear.replace(/[^0-9]/g, "");
+
     if (digits) {
-      const match = headings.find((h) =>
-        (h.textContent || "").replace(/\s+/g, "").includes(digits),
+      const numericMatch = headings.find((heading) =>
+        (heading.textContent || "").replace(/\s+/g, "").includes(digits),
       );
-      if (match) return match.closest(".card");
+      if (numericMatch) return numericMatch.closest(".card");
     }
-    const match2 = headings.find((h) =>
-      (h.textContent || "").toUpperCase().includes(yearInput.toUpperCase()),
+
+    const textualMatch = headings.find((heading) =>
+      (heading.textContent || "").toUpperCase().includes(rawYear.toUpperCase()),
     );
-    if (match2) return match2.closest(".card");
+    if (textualMatch) return textualMatch.closest(".card");
+
     return null;
   }
 
@@ -361,6 +363,19 @@
       .trim();
   }
 
+  function escapeRegExp(value) {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function highlightKeywordInHtml(html, keyword) {
+    if (!html || !keyword || !keyword.trim()) {
+      return html;
+    }
+
+    const pattern = new RegExp(escapeRegExp(keyword.trim()), "gi");
+    return String(html).replace(pattern, (match) => `<mark>${match}</mark>`);
+  }
+
   function searchTimelineByKeyword(keyword) {
     console.log("searchTimelineByKeyword called with:", keyword);
     // clear previous output before starting new search
@@ -454,8 +469,8 @@
       const figures = contentElement.querySelectorAll("figure");
 
       const parts = [];
-      if (h1) parts.push(`<div class="timeline-h1">${h1.innerHTML}</div>`);
-      if (p) parts.push(`<div class="timeline-p">${p.innerHTML}</div>`);
+      if (h1) parts.push(`<div class="timeline-h1">${highlightKeywordInHtml(h1.innerHTML, searchTerm)}</div>`);
+      if (p) parts.push(`<div class="timeline-p">${highlightKeywordInHtml(p.innerHTML, searchTerm)}</div>`);
 
       if (imageRows.length > 0) {
         imageRows.forEach((row) => {
@@ -492,7 +507,7 @@
 
     // Multiple matches: show dropdown similar to Year Search
     let dropdownHtml = `<div class="match-dropdown">
-      <strong>Multiple entries found for "${escapeHtml(searchTerm)}". Select one from the dropdown list below:</strong><br><br>
+      <strong>Multiple entries found for "${escapeHtml(searchTerm)}". Select one from the dropdown list below:</strong>
       <select id="searchMatchSelect">`;
 
     matchingCards.forEach((card, idx) => {
@@ -531,8 +546,8 @@
       const figures = contentElement.querySelectorAll("figure");
 
       const parts = [];
-      if (h1) parts.push(`<div class="timeline-h1">${h1.innerHTML}</div>`);
-      if (p) parts.push(`<div class="timeline-p">${p.innerHTML}</div>`);
+      if (h1) parts.push(`<div class="timeline-h1">${highlightKeywordInHtml(h1.innerHTML, searchTerm)}</div>`);
+      if (p) parts.push(`<div class="timeline-p">${highlightKeywordInHtml(p.innerHTML, searchTerm)}</div>`);
 
       if (imageRows.length > 0) {
         imageRows.forEach((row) => {
