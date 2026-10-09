@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>bluehtl - 9th October 2026 - Infy - Index.html</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="icon" href="images/tardis.png" type="image/png" />
+    <link rel="stylesheet" href="css/cream.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body class="misc-page">
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+    <script>
+      fetch("navbar-index.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("nav-placeholder").innerHTML = data;
+        })
+        .catch((error) => {
+          console.error("Error loading the navigation:", error);
+        });
+    </script>
+
+    <!--End of Navigation bar-->
+    <div class="misc-page">
+      <div class="container mt-5">
+        <p style="margin-top: 100px"></p>
+        <h2>
+          Havering Museum's online version is
+          <b>L:htl-github 28th March 18:45 </b>
+        </h2>
+        <h1>Diary</h1>
+        <p>To change slider colour, change colours in master.js</p>
+        Blue version - 3rd Oct 2026
+        <p>
+          <b>
+            To do ....
+            <p>
+              Add photos for 1920 Rainham War memorial, 1942 HMS Hurricane
+              plaque
+            </p>
+            <p>
+              <b>
+                Check all links and proof GitHub site. Check GitHub on Havering
+                Museum website</b
+              >
+            </p>
+            <br />
+            <p>
+              <s>Slider on search.html could be more prominent</s> - Completed
+              1st April
+            </p>
+            <p><s>Add link to Edna Hall 1879</s> ~ Completed 28th March</p>
+            <p>
+              <s>Delete: 1928-Rafcrest.jpg from Git Hub</s> ~ Completed 28th
+              March
+            </p>
+
+            <br /><br />
+            <p>
+              <b>2nd April </b> - Created new repository for testing. April2026
+              to be left untouched for Beta testing & proof reading.Added
+              intro.html<br />amended navbar-brand to point to intro
+            </p>
+            <p>
+              <b>1st April </b> - Changed GitHub to HaveringTimeline/April2026.
+              All links updated, ready for all full testing.<br />Added
+              .search-result to search.css to make scroll bar more distinctive.
+            </p>
+            <p>
+              <b>31st March - GitHub version - working for testing</b>
+              re-configured links due to 404 errors <br />
+            </p>
+
+            <p>
+              <b>28th March - 20260328 - menu split 1920-30</b>: Split menu to
+              make 1920s and 1930s separate sidebar menu items. ~ Added link to
+              1879 Edna Hall. ~ Set search.html to parchment background. <br />
+            </p>
+
+            <p>
+              <b>27th March - 20260327- needs work on more links </b> Put
+              index-navbar on add-iten.html. All pages dated 2th March<br />
+            </p>
+
+            <p>
+              <b>25th March - 20260318 - working for testing</b> Added copyright
+              info to SH of Romford line 583<br />
+            </p>
+            <p>
+              <b>18th March - 20260318 - working for testing</b> needs a good
+              checking over before anymore changes.<br /><br />
+              Added photos to 1929parklands.html, changed to master.cc image-row
+              to show images across the page..<br />
+              N.B. - using /more/.... for links so won't work on Github, links
+              to be resolved later.
+            </p>
+            <br />
+            <p>
+              <b>17th March</b> - Reverted to 12th March timeline.html. Links to
+              <b>/more</b> folder (short history etc.) need looking at looking
+              into leading / on href links it doesn't work on Museum website via
+              Github. Possibly go with absolute URL
+            </p>
+            <p>
+              <b>14th March</b> - Added "more" folder and 1929parklands.html.
+              Decided to revert to multiple CSS files for ease of use.
+            </p>
+            <p>
+              <b>12th March</b>- Master & Search css now combined.<br />* Fixed:
+              SEARCH BY CATEGORY does search when ENTER changed to search as
+              soon as radio button clicked.. <br />* FIXED: Sidebar menu hover
+              not working on year selection.
+            </p>
+            <br />
+            <p>
+              <b>10th March </b>- Comment out two lines on search.js to stop
+              romhm-text showing twice. Added some ROMHM numbers to
+              timeline.html. v14 figcaption set up in css, ROMHM box smaller<br />
+              v13 needs ROMHM label box to be smaller, * FIXED -1938 pictures
+              smaller.. Rest appears ok.
+            </p>
+            <p>
+              <b>9th March </b>- started tidying up master.css.<br />
+              As of v11:<br />* FIXED: Images need centering. <br />
+              Sidebar menu needs hover function tidied up<br />Copyright texts
+              need to be bold.
+            </p>
+
+            <p>
+              <b> 8th March </b>... Added parchment.jpg to index.html as test,
+              updated master.css with new class=misc-page<br />
+              .json files removed from folder as people.html, pplaces.html and
+              sh.html are no longer used on the website.
+            </p>
+
+            <p>
+              <b> 7th March </b>- On master.js zIndex: "1000", It was 1600 If
+              value is above 1000 the slider goes over navbar menu when sscreen
+              small.
+            </p>
+            6th <b>March </b>... Search tidied up, all js now in search.js,
+            categeory.js not needed.<br />
+            In search .js lines "categoryOutput.innerHTML = `
+            <div class="notice">Loading...</div>
+            `;" changed so Loading... no longer shows. <br /><br />
+            <b></b>5th March 2026
+          </b>
+          - Navbar links spaced out, centered text and coloured grey.
+          Category.html search page created. <br />
+          <li>
+            <a class="nav-link" href="search.html" style="color: red"
+              >Category search -</a
+            >
+          </li>
+          <br /><br />
+          4th March 2026 - Tidied up folder & removed unused files, active
+          folder now 20260304 <br />
+          Changed wording on search drop down box. Removed Short History, People
+          & Places from navbar.html. These are still on navbar1orig.html<br />
+          <li>
+            <a class="nav-link" href="timeline.html" style="color: red"
+              >Places -</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" href="timeline.html" style="color: red"
+              >People -</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" href="more/sh.html" style="color: red">
+              Short History -</a
+            >
+          </li>
+          <br />
+
+          9th Feb 2026 - Emailing snippet probably won't work due to limitations
+          of Gmail size and silently blocking certain actions. Added text search
+          to "search.html" after 4th March renamed as search.html
+        </p>
+
+        <p>
+          8th Feb 2026 - add test page for admin and Havering Museum Collection
+          options, remove People, Places & Short History
+
+          <li>
+            <a class="nav-link" href="search.html" style="color: red"
+              >Museum Collection -</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" href="search.html" style="color: red"
+              >Search page -</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" href="add-item.html" style="color: red"
+              >Add item</a
+            >
+          </li>
+        </p>
+
+        <p>
+          10th January 2026 - Tidied up image names. Uploaded to GitHub so can
+          work on Havering Museum site if required.
+        </p>
+        <p>
+          8th December 2025 - Ready for intial Beta testing - lots more data to
+          add but most functions appear to work OK. Stlye and layout to be
+          tweaked depending on feedback.
+        </p>
+        <p>
+          JSON for people and places after 15th Nov 2025, before that accordion
+          with data.
+        </p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
